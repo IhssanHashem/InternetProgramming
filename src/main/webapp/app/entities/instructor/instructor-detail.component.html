@@ -1,0 +1,37 @@
+
+<div *ngIf="instructor">
+    <h2><span>Instructor</span> {{instructor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{instructor.email}}</span>
+        </dd>
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{instructor.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{instructor.lastName}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{instructor.userLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'instructor/'+ instructor.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

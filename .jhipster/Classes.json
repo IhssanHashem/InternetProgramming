@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instructor",
+            "otherEntityName": "instructor",
+            "otherEntityField": "email"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "studentParent",
+            "otherEntityName": "studentParents",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "classes"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "className",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "classDescription",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170723204006",
+    "entityTableName": "classes",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,43 @@
+
+<div *ngIf="studentParents">
+    <h2><span>Student Parents</span> {{studentParents.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{studentParents.email}}</span>
+        </dd>
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{studentParents.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{studentParents.lastName}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{studentParents.userLogin}}
+        </dd>
+        <dt><span>Classes</span></dt>
+        <dd>
+            <span *ngFor="let classes of studentParents.classes; let last = last">
+                <a [routerLink]="['/classes', classes?.id ]">{{classes.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'student-parents/'+ studentParents.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

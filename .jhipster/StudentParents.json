@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "studentParents"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "studentParent",
+            "relationshipName": "classes",
+            "otherEntityName": "classes",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170723204007",
+    "entityTableName": "student_parents",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}
